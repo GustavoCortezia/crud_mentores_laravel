@@ -15,9 +15,14 @@ class MentorController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
         try {
+
+            // $limit = $request->query('limit');
+            // $page = $request->query('page');
+
+            // $mentores = Mentor::all()->paginate($limit, ['*'], 'page', $page);
             $mentores = Mentor::all();
 
             return response()->json(['mentores' => $mentores], Response::HTTP_OK);
