@@ -18,11 +18,6 @@ class MentorController extends Controller
     public function index(Request $request)
     {
         try {
-
-            // $limit = $request->query('limit');
-            // $page = $request->query('page');
-
-            // $mentores = Mentor::all()->paginate($limit, ['*'], 'page', $page);
             $mentores = Mentor::all();
 
             return response()->json(['mentores' => $mentores], Response::HTTP_OK);
@@ -73,7 +68,7 @@ class MentorController extends Controller
         try {
             $mentor = Mentor::findOrFail($id);
 
-            return response()->json(['success' => true, 'msg' => "Listado carro.", 'data' => $mentor]);
+            return response()->json(['success' => true, 'msg' => "Listado mentor.", 'data' => $mentor]);
         } catch (ModelNotFoundException $error) {
             return response()->json(['success' => false, 'msg' => $error->getMessage()], 404);
         }
