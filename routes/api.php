@@ -25,5 +25,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::post('/login', [AuthController::class, 'store']);
 Route::apiResource('/users', UserController::class)->only('store');
 Route::apiResource('/auth', AuthController::class);
+
+//middleware
 Route::apiResource('/mentors', MentorController::class)->middleware(['auth:sanctum', 'admin']);
-Route::middleware('auth:sanctum')->delete('/logout', [AuthController::class, 'destroy']);
+Route::delete('/logout', [AuthController::class, 'destroy'])->middleware('auth:sanctum');

@@ -95,9 +95,6 @@ class MentorController extends Controller
 
             $mentor = Mentor::findOrFail($id);
 
-            // $carro->marca = $request->marca;
-            // $carro->modelo = $request->modelo;
-
             $mentor->fill([
                 'name' => $request->name,
                 'cpf' => $request->cpf,
